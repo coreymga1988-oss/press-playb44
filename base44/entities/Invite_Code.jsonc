@@ -1,0 +1,57 @@
+{
+  "name": "Invite_Code",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "advertiser",
+        "licensor",
+        "admin"
+      ]
+    },
+    "used": {
+      "type": "boolean",
+      "default": false
+    },
+    "redeemed_by_id": {
+      "type": "string"
+    },
+    "expires_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "code",
+    "email",
+    "role"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

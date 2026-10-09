@@ -1,0 +1,51 @@
+{
+  "name": "Content_Episodes",
+  "type": "object",
+  "properties": {
+    "series_id": {
+      "type": "string"
+    },
+    "series_title": {
+      "type": "string"
+    },
+    "episode_number": {
+      "type": "number"
+    },
+    "episode_title": {
+      "type": "string"
+    },
+    "video_url": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "string",
+      "format": "uri"
+    },
+    "view_count": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "series_id",
+    "episode_title"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

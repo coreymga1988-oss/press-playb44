@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 16% 5%;
+    --foreground: 45 21% 93%;
+    --card: 150 14% 8%;
+    --card-foreground: 45 21% 93%;
+    --popover: 150 14% 8%;
+    --popover-foreground: 45 21% 93%;
+    --primary: 143 72% 52%;
+    --primary-foreground: 150 30% 6%;
+    --secondary: 150 12% 14%;
+    --secondary-foreground: 45 21% 93%;
+    --muted: 150 12% 13%;
+    --muted-foreground: 48 10% 68%;
+    --accent: 108 100% 69%;
+    --accent-foreground: 150 30% 6%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 150 14% 17%;
+    --input: 150 14% 19%;
+    --ring: 143 72% 52%;
+    --chart-1: 143 72% 52%;
+    --chart-2: 108 100% 69%;
+    --chart-3: 45 90% 60%;
+    --chart-4: 200 80% 60%;
+    --chart-5: 280 70% 65%;
+    --radius: 0.5rem;
+    --font-heading: 'Orbitron', ui-sans-serif, system-ui, sans-serif;
+    --font-body: ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sidebar-background: 150 16% 5%;
+    --sidebar-foreground: 45 18% 80%;
+    --sidebar-primary: 143 72% 52%;
+    --sidebar-primary-foreground: 150 30% 6%;
+    --sidebar-accent: 150 12% 12%;
+    --sidebar-accent-foreground: 45 21% 93%;
+    --sidebar-border: 150 14% 16%;
+    --sidebar-ring: 108 100% 69%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+@layer utilities {
+  .neon-text {
+    text-shadow: 0 0 8px hsl(var(--primary) / 0.6), 0 0 20px hsl(var(--primary) / 0.35);
+  }
+  .neon-border {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.5), 0 0 18px hsl(var(--primary) / 0.25);
+  }
+  .neon-accent-glow {
+    box-shadow: 0 0 0 1px hsl(var(--accent) / 0.4), 0 0 22px hsl(var(--accent) / 0.2);
+  }
+  .glass {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(12px);
+  }
+  .progress-glow {
+    box-shadow: 0 0 12px hsl(var(--primary) / 0.5);
+  }
+}

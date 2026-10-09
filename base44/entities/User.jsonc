@@ -1,0 +1,37 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "viewer",
+        "admin",
+        "advertiser",
+        "licensor"
+      ],
+      "default": "viewer"
+    },
+    "subscription_tier": {
+      "type": "string",
+      "enum": [
+        "free",
+        "premium"
+      ],
+      "default": "free"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "avatar_url": {
+      "type": "string"
+    },
+    "suspended": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "name": "Ads",
+  "type": "object",
+  "properties": {
+    "advertiser_id": {
+      "type": "string"
+    },
+    "advertiser_name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "video_file": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "string",
+      "format": "uri"
+    },
+    "target_views": {
+      "type": "number"
+    },
+    "delivered_views": {
+      "type": "number",
+      "default": 0
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending"
+    },
+    "spend": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "title",
+    "video_file",
+    "target_views"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.advertiser_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "data.status": "approved"
+        }
+      ]
+    },
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "advertiser"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "data.advertiser_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "data.advertiser_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
